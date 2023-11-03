@@ -14,21 +14,27 @@ const useContentful = () => {
         select: "fields",
       });
 
+      console.log(response);
+
       const sanitizedData = response.items.map((item) => {
         const img = item.fields.img.fields.file.url;
         const title = item.fields.title;
         const description = item.fields.description;
+        const ingredients = item.fields.ingredients;
 
         return {
           img,
           title,
           description,
+          ingredients,
+          /* ingredientList, */
         };
       });
 
       return sanitizedData;
     } catch (error) {
       console.log("Contentful error: ", error);
+      throw error;
     }
   };
 

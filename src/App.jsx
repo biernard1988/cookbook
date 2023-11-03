@@ -26,6 +26,11 @@ function App() {
               <h1>{recipe.title}</h1>
               <img src={recipe.img} alt={recipe.title} />
               <p>{recipe.description}</p>
+              <ul>
+                {recipe.ingredients?.map((ingredient) => {
+                  return <li>{ingredient}</li>;
+                })}
+              </ul>
             </div>
           );
         })

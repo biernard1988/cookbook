@@ -27,7 +27,6 @@ const useContentful = () => {
           title,
           description,
           ingredients,
-          /* ingredientList, */
         };
       });
 

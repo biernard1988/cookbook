@@ -3,6 +3,8 @@ import "./App.css";
 import useContentful from "./hooks/useContentful";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Singlerecipe from "./hooks/Singlerecipe";
+
 function App() {
   const { getRecipes } = useContentful();
   const [recipes, setRecipes] = useState([]);

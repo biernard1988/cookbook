@@ -18,31 +18,33 @@ function App() {
   }, []);
   return (
     <>
-      {!recipes ? (
-        <p>Loading...</p>
-      ) : (
-        recipes.map((recipe) => {
-          return (
-            <div className="container w-50 pt-3">
-              <div
-                className="storie-card d-flex gap-5  mb-3 rounded shadow p-3 px-4"
-                key={recipe.title}
-              >
-                <img className="w-25" src={recipe.img} alt={recipe.title} />
-                <div className="section-text">
-                  <h4 className="text-primary mb-5">{recipe.title}</h4>{" "}
-                  {/* Display the story title */}
-                  <ul className="d-flex flex-column gap-1 list-unstyled fst-italic">
-                    {recipe.ingredients?.map((ingredient) => {
-                      return <li>{ingredient}</li>;
-                    })}
-                  </ul>
+      <div className="container w-100 pt-3">
+        <div className="row row-cols-3">
+          {!recipes ? (
+            <p>Loading...</p>
+          ) : (
+            recipes.map((recipe) => {
+              return (
+                <div
+                  className="col storie-card d-flex gap-4  mb-3 rounded shadow p-3 px-4"
+                  key={recipe.title}
+                >
+                  <img className="w-25" src={recipe.img} alt={recipe.title} />
+                  <div className="section-text">
+                    <h4 className="text-primary mb-5">{recipe.title}</h4>{" "}
+                    {/* Display the story title */}
+                    <ul className="d-flex flex-column gap-1 list-unstyled fst-italic">
+                      {recipe.ingredients?.map((ingredient) => {
+                        return <li>{ingredient}</li>;
+                      })}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </div>
-          );
-        })
-      )}
+              );
+            })
+          )}
+        </div>
+      </div>
     </>
   );
 }

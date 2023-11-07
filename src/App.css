@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-.storie-card > img {
-  display: block;
-  object-fit: cover;
+
+.storie-card {
+  height: 10rem;
 }

@@ -14,15 +14,15 @@ const useContentful = () => {
         select: "fields",
       });
 
-      console.log(response);
-
       const sanitizedData = response.items.map((item) => {
+        const id = item.sys.id;
         const img = item.fields.img.fields.file.url;
         const title = item.fields.title;
         const description = item.fields.description;
         const ingredients = item.fields.ingredients;
 
         return {
+          id,
           img,
           title,
           description,

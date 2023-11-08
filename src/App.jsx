@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import useContentful from "./hooks/useContentful";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import {Routes, Route, NavLink} from 'react-router-dom';
 import Singlerecipe from "./hooks/Singlerecipe";
 
 function App() {
@@ -20,6 +20,12 @@ function App() {
   }, []);
   return (
     <>
+    {/*<Singlerecipe {Singlerecipe}/>*}
+    <Routes>
+    <Route path='Singlerecipe/:id' element={Singlerecipe}/>
+    <Route />
+
+    </Routes>
       <div className="container w-100 pt-3">
         <div className="row row-cols-3">
           {!recipes ? (

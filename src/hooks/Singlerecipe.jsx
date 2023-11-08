@@ -1,15 +1,17 @@
+import {useParams} from 'react-router-dom'
+
+
 const Singlerecipe = ((recipe)) => {
+const {id} = useParams();
+
+
     return ( 
 
-        <div className="">
+        <div>
             <h3>{recipe.title}</h3>
             <img src={recipe.img} alt={recipe.title}/>
             <p>{recipe.description}</p>
-            <ul className="d-flex flex-column gap-1 list-unstyled fst-italic">
-                    {recipe.ingredients?.map((ingredient) => {
-                        return <li>{ingredient}</li>;
-                    })}
-                    </ul>
+            <ul>{recipe.ingredients}</ul>
         </div>
     );
 }

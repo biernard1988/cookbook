@@ -1,20 +1,26 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink } from "react-router-dom";
-/* import "font-awesome/css/font-awesome.min.css"; // Importe o CSS do FontAwesome
-import FontAwesomeIcon from "@fontawesome/react-fontawesome";
-import { faUtensils } from "@fontawesome/free-solid-svg-icons"; */
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleCLick = () => {
+    alert("I'm the only functional tool here!");
+    navigate("/");
+  };
   return (
     <>
       <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 shadow">
         <div class="container-fluid">
           <div className="logo">
-            <a class="navbar-brand text-success fw-bold" href="#">
+            <a
+              class="navbar-brand text-success fw-bold"
+              href="#"
+              onClick={handleCLick}
+            >
               COOKBOOK
             </a>
-            {/* <FontAwesomeIcon icon={faUtensils} /> */}
           </div>
 
           <div class="links-section d-flex">
@@ -25,10 +31,13 @@ function Navbar() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-success" href="#">
+                <a class="nav-link text-success" href="#" onClick={handleCLick}>
                   Recipes
                 </a>
               </li>
+              {/* <NavLink to="/" class="link">
+                Recipes
+              </NavLink> */}
               <li class="nav-item">
                 <a class="nav-link text-success" href="#">
                   Drinks

@@ -11,7 +11,7 @@ function Navbar() {
   };
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 shadow">
+      <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary mb-3 shadow">
         <div class="container-fluid">
           <div className="logo">
             <a

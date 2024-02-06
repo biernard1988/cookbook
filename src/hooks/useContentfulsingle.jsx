@@ -11,6 +11,7 @@ const useContentfulsingle = () => {
     try {
       const response = await client.getEntry(id);
       console.log(response);
+
       const title = response.fields.title;
       const img = response.fields.img.fields.file.url;
       const description = response.fields.description;

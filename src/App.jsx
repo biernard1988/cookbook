@@ -1,42 +1,37 @@
-import { useState, useEffect } from "react";
+// Importing necessary modules and styles
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import useContentful from "./hooks/useContentful";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+// Importing custom components
+import Navbar from "./components/Navbar";
+import Recipegrid from "./components/Recipegrid";
+import Singlerecipe from "./components/Singlerecipe";
+
+// The main App component
 function App() {
-  const { getRecipes } = useContentful();
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    getRecipes()
-      .then((data) => {
-        setRecipes(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // The return statement contains the structure of the application
   return (
     <>
-      {!recipes ? (
-        <p>Loading...</p>
-      ) : (
-        recipes.map((recipe) => {
-          return (
-            <div className="card" key={recipe.title}>
-              <h1>{recipe.title}</h1>
-              <img src={recipe.img} alt={recipe.title} />
-              <p>{recipe.description}</p>
-              <ul>
-                {recipe.ingredients?.map((ingredient) => {
-                  return <li>{ingredient}</li>;
-                })}
-              </ul>
-            </div>
-          );
-        })
-      )}
+      {/* Rendering the Navbar component with a path prop and an element prop */}
+      {/* The path prop specifies the URL path for which this Navbar should be active */}
+      {/* The element prop is JSX that will be rendered when the path matches */}
+      <Navbar path="/" element={<Recipegrid />} />
+
+      {/* Using the React Router "Routes" component to define the routes */}
+      <Routes>
+        {/* The first Route component for the path "/" */}
+        {/* It renders the Recipegrid component when the path matches */}
+        <Route path="/" element={<Recipegrid />} />
+
+        {/* The second Route component for dynamic paths like "/:id" */}
+        {/* It renders the Singlerecipe component when the path matches */}
+        {/* ":id" is a route parameter that can be accessed in the Singlerecipe component */}
+        <Route path="/:id" element={<Singlerecipe />} />
+      </Routes>
     </>
   );
 }
 
+// Exporting the App component as the default export of this module
 export default App;
